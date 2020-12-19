@@ -59,9 +59,26 @@ int find_valid_passwords (const vector<string> &passwords) {
     return valid_passwords;
 }
 
+int find_valid_passwords_2 (const vector<string> &passwords) {
+    uint32_t valid_passwords = 0;
+    for (const string &line : passwords) {
+        auto [password, restriction, min, max] = parse_line(line);
+
+        bool firstnotlast = (password[min - 1] == restriction) && (password[max - 1] != restriction);
+        bool lastnotfirst = (password[min - 1] != restriction) && (password[max - 1] == restriction);
+
+        if (firstnotlast || lastnotfirst) {
+            valid_passwords++;
+        }
+    }
+    return valid_passwords;
+}
+
 int main () {
     vector<string> passwords = read_file("passwords.txt");
     uint32_t valid = find_valid_passwords(passwords);
+    uint32_t valid2 = find_valid_passwords_2(passwords);
     cout << "valid passwords: " << valid << endl;
+    cout << "valid passwords 2: " << valid2 << endl;
     return 0;
 }
