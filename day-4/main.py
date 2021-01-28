@@ -6,7 +6,6 @@ valid_passports = []
 
 with open(filename) as f:
     lines = f.read().split("\n\n")
-    passports = []
 
 for l in lines:
     data = " ".join(l.split("\n")).split()
