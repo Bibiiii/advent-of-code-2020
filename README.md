@@ -5,3 +5,6 @@ Haskell
 
 ## Day 2
 C++
+
+## Day 3
+Java
