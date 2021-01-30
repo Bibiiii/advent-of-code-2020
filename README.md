@@ -11,3 +11,6 @@ Java
 
 ## Day 4
 Python
+
+## Day 5
+JavaScript
